@@ -1,3 +1,12 @@
+def printList(l1):
+    x = 0
+    y = 0
+    for element1 in l1:
+        while x < len(l1[0]) and y < len(l1[1]):
+            print("Student id " + l1[0][x] + " has the mark: " + l1[1][y])
+            x += 1
+            y += 1
+
 def courseList() -> list:
     c_list: list = []
     number_of_course: int = getCourseNumber()
@@ -37,13 +46,13 @@ def getCourseInfo() -> str:
     c_name: str = input("\nEnter course name: ")
     return c_id, c_name
 
-def getMark() -> dict: 
+def getMark(): 
     mark_list: list = []
     student_list: list = []
     c_list = courseList()
     s_list = studentList()
     ask_c_id: str = input("\nWhich course do you choose: ")
-    final_list: dict = {"student_id": student_list, "mark": mark_list}
+    combine_list = [mark_list, student_list]
     
     if ask_c_id in (item for sublist in c_list for item in sublist):
         print("\nThe course does exsist!!!")
@@ -55,17 +64,20 @@ def getMark() -> dict:
                     get_mark = input(f"\nEnter mark for student {ask_s_id}: ")
                     mark_list.append(get_mark)
                     student_list.append(ask_s_id)
-            print(final_list)
+                    
+            print("\nIn the course id " + ask_c_id + ":")
+            printList(combine_list)
+    
         else:
             print("\nSomething wrong with the number of student")
         
-    return final_list
                 
                         
                     
-                
+
                 
     
     
 mark = getMark()
 
+         
