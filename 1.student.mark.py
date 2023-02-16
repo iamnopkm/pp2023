@@ -37,15 +37,14 @@ def getCourseInfo() -> str:
     c_name: str = input("\nEnter course name: ")
     return c_id, c_name
 
-def getMark(): 
+def getMark() -> dict: 
     mark_list: list = []
     student_list: list = []
     c_list = courseList()
     s_list = studentList()
     ask_c_id: str = input("\nWhich course do you choose: ")
-    # flag: bool = True
     final_list: dict = {"student_id": student_list, "mark": mark_list}
-    # while flag:
+    
     if ask_c_id in (item for sublist in c_list for item in sublist):
         print("\nThe course does exsist!!!")
         promp = int(input("\nHow many student in this course: "))
@@ -57,10 +56,9 @@ def getMark():
                     mark_list.append(get_mark)
                     student_list.append(ask_s_id)
             print(final_list)
-            # flag: bool = False
         else:
             print("\nSomething wrong with the number of student")
-            # flag: bool = False
+        
     return final_list
                 
                         
